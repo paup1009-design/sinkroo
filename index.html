@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sinkroo — Marketing con IA que vende solo</title>
+<meta name="description" content="Sinkroo crea anuncios que venden y un vendedor en WhatsApp 24/7. Sube tu producto, la IA valida antes de gastar y cierra la venta por ti.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#111111;
+  --ink-soft:#2a2a2a;
+  --cream:#F5F1EA;
+  --beige:#E7DFD3;
+  --grey:#8A857C;
+  --grey-light:#B8B2A6;
+  --white:#FFFFFF;
+  --line:#DDD6CA;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Montserrat',sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  font-weight:400;
+}
+.serif{font-family:'Playfair Display',serif}
+.container{max-width:1120px;margin:0 auto;padding:0 28px}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(245,241,234,0.9);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:1120px;margin:0 auto;padding:18px 28px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.logo{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;letter-spacing:1px;color:var(--ink)}
+.logo span{color:var(--grey)}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{text-decoration:none;color:var(--ink-soft);font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:500}
+.nav-links a:hover{color:var(--ink)}
+.btn{
+  display:inline-block;background:var(--ink);color:var(--white);
+  padding:13px 28px;font-size:12px;letter-spacing:2px;text-transform:uppercase;
+  font-weight:600;border:none;border-radius:2px;cursor:pointer;
+  text-decoration:none;transition:opacity .2s;
+}
+.btn:hover{opacity:.85}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--white)}
+
+/* HERO */
+.hero{padding:110px 0 90px;text-align:center}
+.eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--grey);margin-bottom:24px;font-weight:500}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:64px;line-height:1.1;font-weight:500;max-width:820px;margin:0 auto 28px;
+}
+.hero h1 em{font-style:italic}
+.hero p.sub{font-size:18px;color:var(--grey);max-width:620px;margin:0 auto 40px;font-weight:300}
+.hero-cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* STATS STRIP */
+.stats{
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:52px 0;background:var(--white);
+}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:44px;font-weight:600;color:var(--ink)}
+.stat-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--grey);margin-top:6px;font-weight:500}
+
+/* PROBLEM */
+.section{padding:96px 0}
+.section h2{
+  font-family:'Playfair Display',serif;font-size:42px;font-weight:500;line-height:1.2;
+  margin-bottom:20px;
+}
+.section .lead{font-size:17px;color:var(--grey);max-width:640px;margin-bottom:56px;font-weight:300}
+
+/* HOW IT WORKS (cycle) */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.step{
+  background:var(--white);border:1px solid var(--line);padding:40px 32px;
+  border-radius:2px;
+}
+.step .num{font-family:'Playfair Display',serif;font-size:15px;color:var(--grey);margin-bottom:16px;letter-spacing:1px}
+.step h3{font-family:'Playfair Display',serif;font-size:24px;font-weight:500;margin-bottom:12px}
+.step p{font-size:14px;color:var(--grey);font-weight:300}
+
+/* MIROFISH FEATURE */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.split h2{margin-bottom:16px}
+.split p{color:var(--grey);font-size:16px;margin-bottom:18px;font-weight:300}
+.feature-list{list-style:none;margin-top:8px}
+.feature-list li{
+  padding:14px 0;border-bottom:1px solid var(--line);font-size:15px;
+  display:flex;align-items:flex-start;gap:12px;
+}
+.feature-list li::before{content:"→";color:var(--grey);font-family:'Playfair Display',serif}
+
+/* PRICING */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.plan{background:var(--white);border:1px solid var(--line);padding:44px 34px;border-radius:2px;display:flex;flex-direction:column}
+.plan.featured{background:var(--ink);color:var(--white);border-color:var(--ink)}
+.plan .plan-name{font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;font-weight:600;color:var(--grey)}
+.plan.featured .plan-name{color:var(--beige)}
+.plan .price{font-family:'Playfair Display',serif;font-size:52px;font-weight:600;line-height:1}
+.plan .price small{font-size:16px;font-weight:400;color:var(--grey)}
+.plan.featured .price small{color:var(--beige)}
+.plan .per{font-size:13px;color:var(--grey);margin:6px 0 24px;font-weight:300}
+.plan ul{list-style:none;flex:1;margin-bottom:28px}
+.plan ul li{padding:9px 0;font-size:14px;font-weight:300;border-bottom:1px solid var(--line)}
+.plan.featured ul li{border-color:rgba(255,255,255,0.15)}
+.plan .btn{width:100%;text-align:center}
+.plan.featured .btn{background:var(--white);color:var(--ink)}
+
+/* AUDIENCE */
+.audience{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.audience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.persona{border:1px solid var(--line);padding:36px 30px;border-radius:2px;background:var(--cream)}
+.persona .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--grey);font-weight:600;margin-bottom:14px}
+.persona h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:500;margin-bottom:10px}
+.persona p{font-size:13px;color:var(--grey);font-weight:300}
+
+/* CTA */
+.final{text-align:center}
+.final h2{margin-bottom:16px}
+.final p{color:var(--grey);max-width:540px;margin:0 auto 36px;font-weight:300}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:44px 0;background:var(--white)}
+.footer-inner{max-width:1120px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:600}
+footer p{font-size:12px;color:var(--grey);font-weight:300}
+
+@media(max-width:860px){
+  .hero h1{font-size:42px}
+  .stats-grid,.steps,.pricing-grid,.split,.audience-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .section h2{font-size:32px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Sink<span>roo</span></div>
+    <div class="nav-links">
+      <a href="#como">Cómo funciona</a>
+      <a href="#precios">Precios</a>
+      <a href="#para-quien">Para quién</a>
+    </div>
+    <a href="https://wa.me/573102964984" class="btn">Hablar con Sinkroo</a>
+  </div>
+</nav>
+
+<header class="hero container">
+  <div class="eyebrow">Marketing autónomo con IA</div>
+  <h1>Tu marketing <em>se vende solo</em>.<br>Mientras tú vives.</h1>
+  <p class="sub">Sinkroo crea anuncios que venden y pone un vendedor en tu WhatsApp 24/7. Sin experiencia, sin agencia, sin quemar presupuesto a ciegas.</p>
+  <div class="hero-cta">
+    <a href="https://wa.me/573102964984" class="btn">Empezar ahora</a>
+    <a href="#como" class="btn ghost">Ver cómo funciona</a>
+  </div>
+</header>
+
+<section class="stats">
+  <div class="container stats-grid">
+    <div><div class="stat-num">70%</div><div class="stat-label">del presupuesto que dejas de quemar</div></div>
+    <div><div class="stat-num">24/7</div><div class="stat-label">vendiendo en tu WhatsApp</div></div>
+    <div><div class="stat-num">&lt;3s</div><div class="stat-label">en responder a cada lead</div></div>
+    <div><div class="stat-num">3–5x</div><div class="stat-label">ROAS desde el primer mes</div></div>
+  </div>
+</section>
+
+<section class="section" id="como">
+  <div class="container">
+    <h2>De «a ver si funciona»<br>a «ya sé que funciona».</h2>
+    <p class="lead">Hoy gastas para descubrir qué vende. Sinkroo invierte la ecuación: predice qué funciona <em>antes</em> de gastar un peso.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="num">01</div>
+        <h3>Sube tu producto</h3>
+        <p>3 fotos y una descripción. Nada más. Sin Meta Ads Manager, sin Canva, sin cursos de 20 horas.</p>
+      </div>
+      <div class="step">
+        <div class="num">02</div>
+        <h3>La IA crea y valida</h3>
+        <p>Genera tus anuncios y MiroFish —100 agentes sintéticos— predice cuál vende antes de que gastes. Lanzas solo el ganador.</p>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <h3>El vendedor cierra</h3>
+        <p>Tu agente responde en WhatsApp en segundos, califica, maneja objeciones y manda el link de pago. 24/7, sin contratar a nadie.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split">
+    <div>
+      <h2>MiroFish.<br>Tu laboratorio de mercado privado.</h2>
+      <p>Antes de gastar un dólar, 100 agentes sintéticos «ven» tu anuncio y votan. El resultado: una puntuación clara de probabilidad de éxito. Adiós al 70% de presupuesto quemado en anuncios que nunca tuvieron chance.</p>
+      <ul class="feature-list">
+        <li>Validación previa al gasto — no post-mortem</li>
+        <li>Correlación 65%+ con el ROAS real</li>
+        <li>Explicación clara de por qué gana cada creativo</li>
+      </ul>
+    </div>
+    <div class="step" style="background:var(--beige)">
+      <div class="num" style="color:var(--ink-soft)">SALIDA DE MIROFISH</div>
+      <h3 style="font-size:28px">Creativo A — <em>78%</em></h3>
+      <p style="color:var(--ink-soft)">Probabilidad de éxito</p>
+      <div style="height:2px;background:var(--white);margin:12px 0"></div>
+      <h3 style="font-size:22px">Creativo B — <em>45%</em></h3>
+      <p style="color:var(--ink-soft)">Probabilidad de éxito</p>
+      <div style="height:2px;background:var(--white);margin:12px 0"></div>
+      <h3 style="font-size:22px">Creativo C — <em>52%</em></h3>
+      <p style="color:var(--ink-soft)">Probabilidad de éxito</p>
+      <p style="margin-top:24px;font-size:13px;color:var(--ink-soft)">Lanzas solo A. Todo tu presupuesto va a un anuncio validado.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="precios">
+  <div class="container">
+    <h2>Un precio que se paga solo.</h2>
+    <p class="lead">El ahorro del primer mes cubre tu plan. Del segundo en adelante, es ganancia.</p>
+    <div class="pricing-grid">
+      <div class="plan">
+        <div class="plan-name">Starter</div>
+        <div class="price">$55<small>/mes</small></div>
+        <div class="per">Para la emprendedora que empieza</div>
+        <ul>
+          <li>3 campañas</li>
+          <li>500 mensajes WhatsApp</li>
+          <li>100 créditos</li>
+          <li>1 producto</li>
+        </ul>
+        <a href="https://wa.me/573102964984" class="btn ghost">Empezar</a>
+      </div>
+      <div class="plan featured">
+        <div class="plan-name">Pro — más popular</div>
+        <div class="price">$143<small>/mes</small></div>
+        <div class="per">Para el negocio en crecimiento</div>
+        <ul>
+          <li>10 campañas</li>
+          <li>2.000 mensajes WhatsApp</li>
+          <li>350 créditos</li>
+          <li>Múltiples productos</li>
+        </ul>
+        <a href="https://wa.me/573102964984" class="btn">Empezar</a>
+      </div>
+      <div class="plan">
+        <div class="plan-name">Agency</div>
+        <div class="price">$349<small>/mes</small></div>
+        <div class="per">Para agencias y freelancers</div>
+        <ul>
+          <li>5 clientes gestionados</li>
+          <li>2.500 mensajes WhatsApp</li>
+          <li>Dashboard multi-cliente</li>
+          <li>Reporting incluido</li>
+        </ul>
+        <a href="https://wa.me/573102964984" class="btn ghost">Empezar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section audience" id="para-quien">
+  <div class="container">
+    <h2>Hecho para quien no tiene tiempo<br>ni un experto en nómina.</h2>
+    <p class="lead"></p>
+    <div class="audience-grid">
+      <div class="persona">
+        <div class="tag">La emprendedora</div>
+        <h3>María</h3>
+        <p>Boutique, clínica o e-commerce. Gasta $1.000 al mes en ads sin saber qué funciona. Quiere vender sin volverse marketera.</p>
+      </div>
+      <div class="persona">
+        <div class="tag">El freelancer</div>
+        <h3>Carlos</h3>
+        <p>Gestiona 10 clientes solo. Hoy dedica 60h al mes a diseñar. Con Sinkroo atiende 23 clientes sin contratar a nadie.</p>
+      </div>
+      <div class="persona">
+        <div class="tag">La distribuidora MLM</div>
+        <h3>Sofía</h3>
+        <p>Herbalife, Omnilife o similares. Sus anuncios los rechaza Meta por claims no permitidos. Sinkroo valida compliance antes de lanzar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section final">
+  <div class="container">
+    <h2>Deja de quemar tu presupuesto.<br>Empieza a vender de verdad.</h2>
+    <p>Escríbenos por WhatsApp y en minutos tienes tu primera campaña lista para ser validada.</p>
+    <a href="https://wa.me/573102964984" class="btn">Hablar con Sinkroo</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Sinkroo</div>
+    <p>© 2026 Sinkroo Technologies FZ-LLC · Sharjah, UAE</p>
+    <p style="display:flex;gap:18px">
+      <a href="https://wa.me/573102964984" style="color:var(--grey);text-decoration:none">WhatsApp</a>
+      <a href="mailto:paula@sinkroo.com" style="color:var(--grey);text-decoration:none">Contacto</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
