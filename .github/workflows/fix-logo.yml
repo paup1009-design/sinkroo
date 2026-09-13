@@ -1,0 +1,63 @@
+name: Fix logo binary and refs
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch real logo (SHA-verified)
+        run: |
+          python3 - <<'EOF'
+          import urllib.request, hashlib, sys
+          urls = [
+              "https://files.catbox.moe/jqz3ya.jpg",
+              "https://h.uguu.se/ZgmeWYwM.jpg",
+          ]
+          EXPECT = "457c6c4b75d869d8c3de76f22a5d1214b5d39223781eed67a5bd2f7d8bc21fd6"
+          ok = False
+          for u in urls:
+              try:
+                  req = urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0"})
+                  data = urllib.request.urlopen(req, timeout=120).read()
+                  sha = hashlib.sha256(data).hexdigest()
+                  print(u, len(data), "bytes, sha", sha)
+                  if sha == EXPECT:
+                      open("logo.png", "wb").write(data)
+                      print("WROTE logo.png")
+                      ok = True
+                      break
+              except Exception as e:
+                  print("fail", u, e)
+          sys.exit(0 if ok else 1)
+          EOF
+
+      - name: Point HTML at internal logo
+        run: |
+          python3 - <<'EOF'
+          p = "index.html"
+          t = open(p, encoding="utf-8").read()
+          n_before = t.count("https://n.uguu.se/hLkDkXWC.jpg")
+          t = t.replace("https://n.uguu.se/hLkDkXWC.jpg", "logo.png")
+          open(p, "w", encoding="utf-8").write(t)
+          print("replaced", n_before, "external refs; internal refs now:", t.count("logo.png"))
+          EOF
+
+      - name: Commit if changed
+        run: |
+          git config user.name "sinkroo-bot"
+          git config user.email "action@github.com"
+          git add logo.png index.html
+n          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "fix: logo real byte-exacto y refs internas"
+            git push
+          fi
