@@ -7,35 +7,35 @@
 <meta name="description" content="Sinkroo crea anuncios que venden y un vendedor en WhatsApp 24/7. Sube tu producto, la IA valida antes de gastar y cierra la venta por ti.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#111111;
-  --ink-soft:#2a2a2a;
-  --cream:#F5F1EA;
-  --beige:#E7DFD3;
-  --grey:#8A857C;
-  --grey-light:#B8B2A6;
-  --white:#FFFFFF;
-  --line:#DDD6CA;
+  --bg:#07070d;
+  --bg-2:#0d0d18;
+  --panel:#12121f;
+  --violet:#8B5CF6;
+  --violet-soft:#a78bfa;
+  --silver:#c9c9d4;
+  --text:#f5f5f8;
+  --muted:#8b8b9c;
+  --line:rgba(255,255,255,.08);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  font-family:'Montserrat',sans-serif;
-  color:var(--ink);
-  background:var(--cream);
+  font-family:'Inter',sans-serif;
+  color:var(--text);
+  background:radial-gradient(1200px 600px at 50% -100px, #1a1333 0%, var(--bg) 60%);
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
   font-weight:400;
 }
-.serif{font-family:'Playfair Display',serif}
 .container{max-width:1120px;margin:0 auto;padding:0 28px}
 
 /* NAV */
 nav{
   position:sticky;top:0;z-index:50;
-  background:rgba(245,241,234,0.9);
+  background:rgba(7,7,13,.8);
   backdrop-filter:blur(12px);
   border-bottom:1px solid var(--line);
 }
@@ -43,104 +43,98 @@ nav{
   max-width:1120px;margin:0 auto;padding:18px 28px;
   display:flex;align-items:center;justify-content:space-between;
 }
-.logo{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;letter-spacing:1px;color:var(--ink)}
-.logo span{color:var(--grey)}
+.logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:21px;letter-spacing:.5px;color:var(--text)}
+.logo svg{width:26px;height:26px}
 .nav-links{display:flex;gap:32px;align-items:center}
-.nav-links a{text-decoration:none;color:var(--ink-soft);font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:500}
-.nav-links a:hover{color:var(--ink)}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:500}
+.nav-links a:hover{color:var(--text)}
 .btn{
-  display:inline-block;background:var(--ink);color:var(--white);
+  display:inline-block;background:var(--violet);color:#fff;
   padding:13px 28px;font-size:12px;letter-spacing:2px;text-transform:uppercase;
-  font-weight:600;border:none;border-radius:2px;cursor:pointer;
-  text-decoration:none;transition:opacity .2s;
+  font-weight:600;border:none;border-radius:3px;cursor:pointer;
+  text-decoration:none;transition:filter .2s, transform .2s;
 }
-.btn:hover{opacity:.85}
-.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
-.btn.ghost:hover{background:var(--ink);color:var(--white)}
+.btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.btn.ghost:hover{background:rgba(255,255,255,.04)}
 
 /* HERO */
 .hero{padding:110px 0 90px;text-align:center}
-.eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--grey);margin-bottom:24px;font-weight:500}
-.hero h1{
-  font-family:'Playfair Display',serif;
-  font-size:64px;line-height:1.1;font-weight:500;max-width:820px;margin:0 auto 28px;
-}
-.hero h1 em{font-style:italic}
-.hero p.sub{font-size:18px;color:var(--grey);max-width:620px;margin:0 auto 40px;font-weight:300}
+.hero-logo{margin:0 auto 34px;width:92px;height:92px;filter:drop-shadow(0 0 40px rgba(139,92,246,.45))}
+.eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--violet-soft);margin-bottom:24px;font-weight:600}
+.hero h1{font-size:60px;line-height:1.12;font-weight:600;max-width:820px;margin:0 auto 28px;letter-spacing:-.5px}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,#a78bfa,#8b5cf6);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero p.sub{font-size:18px;color:var(--muted);max-width:620px;margin:0 auto 40px;font-weight:300}
 .hero-cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 
-/* STATS STRIP */
-.stats{
-  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  padding:52px 0;background:var(--white);
-}
+/* STATS */
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:52px 0;background:rgba(18,18,31,.5)}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
-.stat-num{font-family:'Playfair Display',serif;font-size:44px;font-weight:600;color:var(--ink)}
-.stat-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--grey);margin-top:6px;font-weight:500}
+.stat-num{font-size:44px;font-weight:600;color:var(--text)}
+.stat-num span{color:var(--violet)}
+.stat-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:6px;font-weight:500}
 
-/* PROBLEM */
+/* SECTIONS */
 .section{padding:96px 0}
-.section h2{
-  font-family:'Playfair Display',serif;font-size:42px;font-weight:500;line-height:1.2;
-  margin-bottom:20px;
-}
-.section .lead{font-size:17px;color:var(--grey);max-width:640px;margin-bottom:56px;font-weight:300}
+.section h2{font-size:42px;font-weight:600;line-height:1.2;margin-bottom:20px;letter-spacing:-.5px}
+.section .lead{font-size:17px;color:var(--muted);max-width:640px;margin-bottom:56px;font-weight:300}
 
-/* HOW IT WORKS (cycle) */
+/* STEPS */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.step{
-  background:var(--white);border:1px solid var(--line);padding:40px 32px;
-  border-radius:2px;
-}
-.step .num{font-family:'Playfair Display',serif;font-size:15px;color:var(--grey);margin-bottom:16px;letter-spacing:1px}
-.step h3{font-family:'Playfair Display',serif;font-size:24px;font-weight:500;margin-bottom:12px}
-.step p{font-size:14px;color:var(--grey);font-weight:300}
+.step{background:var(--panel);border:1px solid var(--line);padding:40px 32px;border-radius:6px}
+.step .num{font-size:15px;color:var(--violet);margin-bottom:16px;letter-spacing:1px;font-weight:600}
+.step h3{font-size:24px;font-weight:600;margin-bottom:12px}
+.step p{font-size:14px;color:var(--muted);font-weight:300}
 
-/* MIROFISH FEATURE */
+/* SPLIT / MIROFISH */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
 .split h2{margin-bottom:16px}
-.split p{color:var(--grey);font-size:16px;margin-bottom:18px;font-weight:300}
+.split p{color:var(--muted);font-size:16px;margin-bottom:18px;font-weight:300}
 .feature-list{list-style:none;margin-top:8px}
-.feature-list li{
-  padding:14px 0;border-bottom:1px solid var(--line);font-size:15px;
-  display:flex;align-items:flex-start;gap:12px;
-}
-.feature-list li::before{content:"→";color:var(--grey);font-family:'Playfair Display',serif}
+.feature-list li{padding:14px 0;border-bottom:1px solid var(--line);font-size:15px;display:flex;align-items:flex-start;gap:12px}
+.feature-list li::before{content:"→";color:var(--violet);font-weight:600}
+.mirofish-card{background:linear-gradient(160deg,#1a1333,#12121f);border:1px solid rgba(139,92,246,.3);border-radius:8px;padding:40px 34px}
+.mirofish-card .label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--violet-soft);margin-bottom:20px;font-weight:600}
+.score{margin-bottom:14px}
+.score .bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-size:15px}
+.score .bar .pct{color:var(--violet);font-weight:700}
+.score .track{height:6px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden}
+.score .fill{height:100%;background:linear-gradient(90deg,#8b5cf6,#a78bfa);border-radius:3px}
+.mirofish-card .winner{margin-top:18px;font-size:14px;color:var(--muted)}
 
 /* PRICING */
 .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.plan{background:var(--white);border:1px solid var(--line);padding:44px 34px;border-radius:2px;display:flex;flex-direction:column}
-.plan.featured{background:var(--ink);color:var(--white);border-color:var(--ink)}
-.plan .plan-name{font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;font-weight:600;color:var(--grey)}
-.plan.featured .plan-name{color:var(--beige)}
-.plan .price{font-family:'Playfair Display',serif;font-size:52px;font-weight:600;line-height:1}
-.plan .price small{font-size:16px;font-weight:400;color:var(--grey)}
-.plan.featured .price small{color:var(--beige)}
-.plan .per{font-size:13px;color:var(--grey);margin:6px 0 24px;font-weight:300}
+.plan{background:var(--panel);border:1px solid var(--line);padding:44px 34px;border-radius:6px;display:flex;flex-direction:column}
+.plan.featured{border:1px solid var(--violet);background:linear-gradient(160deg,#16112c,#12121f)}
+.plan .plan-name{font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;font-weight:600;color:var(--muted)}
+.plan.featured .plan-name{color:var(--violet-soft)}
+.plan .price{font-size:52px;font-weight:600;line-height:1}
+.plan .price small{font-size:16px;font-weight:400;color:var(--muted)}
+.plan .per{font-size:13px;color:var(--muted);margin:6px 0 24px;font-weight:300}
 .plan ul{list-style:none;flex:1;margin-bottom:28px}
 .plan ul li{padding:9px 0;font-size:14px;font-weight:300;border-bottom:1px solid var(--line)}
-.plan.featured ul li{border-color:rgba(255,255,255,0.15)}
 .plan .btn{width:100%;text-align:center}
-.plan.featured .btn{background:var(--white);color:var(--ink)}
+.plan.featured .btn{background:#fff;color:#16112c}
 
 /* AUDIENCE */
-.audience{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.audience{background:rgba(18,18,31,.5);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .audience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
-.persona{border:1px solid var(--line);padding:36px 30px;border-radius:2px;background:var(--cream)}
-.persona .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--grey);font-weight:600;margin-bottom:14px}
-.persona h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:500;margin-bottom:10px}
-.persona p{font-size:13px;color:var(--grey);font-weight:300}
+.persona{border:1px solid var(--line);padding:36px 30px;border-radius:6px;background:var(--bg-2)}
+.persona .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--violet-soft);font-weight:600;margin-bottom:14px}
+.persona h3{font-size:22px;font-weight:600;margin-bottom:10px}
+.persona p{font-size:13px;color:var(--muted);font-weight:300}
 
-/* CTA */
+/* FINAL */
 .final{text-align:center}
 .final h2{margin-bottom:16px}
-.final p{color:var(--grey);max-width:540px;margin:0 auto 36px;font-weight:300}
+.final p{color:var(--muted);max-width:540px;margin:0 auto 36px;font-weight:300}
 
 /* FOOTER */
-footer{border-top:1px solid var(--line);padding:44px 0;background:var(--white)}
+footer{border-top:1px solid var(--line);padding:44px 0;background:var(--bg)}
 .footer-inner{max-width:1120px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-.footer-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:600}
-footer p{font-size:12px;color:var(--grey);font-weight:300}
+.footer-logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:18px}
+.footer-logo svg{width:22px;height:22px}
+footer p{font-size:12px;color:var(--muted);font-weight:300}
 
 @media(max-width:860px){
   .hero h1{font-size:42px}
@@ -154,7 +148,10 @@ footer p{font-size:12px;color:var(--grey);font-weight:300}
 
 <nav>
   <div class="nav-inner">
-    <div class="logo">Sink<span>roo</span></div>
+    <div class="logo">
+      <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g fill="#8B5CF6"><path d="M16 2 L24 7 V17 C24 23 20 27 16 29 C12 27 8 23 8 17 V7 Z"/></g><g fill="#a78bfa"><circle cx="12" cy="11" r="2.6"/><circle cx="20" cy="11" r="2.6"/></g><g fill="#c9c9d4"><path d="M14 15 L18 15 L16 19 Z"/></g></svg>
+      Sinkroo
+    </div>
     <div class="nav-links">
       <a href="#como">Cómo funciona</a>
       <a href="#precios">Precios</a>
@@ -165,6 +162,7 @@ footer p{font-size:12px;color:var(--grey);font-weight:300}
 </nav>
 
 <header class="hero container">
+  <svg class="hero-logo" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g fill="#8B5CF6"><path d="M16 2 L24 7 V17 C24 23 20 27 16 29 C12 27 8 23 8 17 V7 Z"/></g><g fill="#a78bfa"><circle cx="12" cy="11" r="2.6"/><circle cx="20" cy="11" r="2.6"/></g><g fill="#c9c9d4"><path d="M14 15 L18 15 L16 19 Z"/></g></svg>
   <div class="eyebrow">Marketing autónomo con IA</div>
   <h1>Tu marketing <em>se vende solo</em>.<br>Mientras tú vives.</h1>
   <p class="sub">Sinkroo crea anuncios que venden y pone un vendedor en tu WhatsApp 24/7. Sin experiencia, sin agencia, sin quemar presupuesto a ciegas.</p>
@@ -176,10 +174,10 @@ footer p{font-size:12px;color:var(--grey);font-weight:300}
 
 <section class="stats">
   <div class="container stats-grid">
-    <div><div class="stat-num">70%</div><div class="stat-label">del presupuesto que dejas de quemar</div></div>
-    <div><div class="stat-num">24/7</div><div class="stat-label">vendiendo en tu WhatsApp</div></div>
-    <div><div class="stat-num">&lt;3s</div><div class="stat-label">en responder a cada lead</div></div>
-    <div><div class="stat-num">3–5x</div><div class="stat-label">ROAS desde el primer mes</div></div>
+    <div><div class="stat-num"><span>70%</span></div><div class="stat-label">del presupuesto que dejas de quemar</div></div>
+    <div><div class="stat-num"><span>24/7</span></div><div class="stat-label">vendiendo en tu WhatsApp</div></div>
+    <div><div class="stat-num"><span>&lt;3s</span></div><div class="stat-label">en responder a cada lead</div></div>
+    <div><div class="stat-num"><span>3–5x</span></div><div class="stat-label">ROAS desde el primer mes</div></div>
   </div>
 </section>
 
@@ -218,17 +216,12 @@ footer p{font-size:12px;color:var(--grey);font-weight:300}
         <li>Explicación clara de por qué gana cada creativo</li>
       </ul>
     </div>
-    <div class="step" style="background:var(--beige)">
-      <div class="num" style="color:var(--ink-soft)">SALIDA DE MIROFISH</div>
-      <h3 style="font-size:28px">Creativo A — <em>78%</em></h3>
-      <p style="color:var(--ink-soft)">Probabilidad de éxito</p>
-      <div style="height:2px;background:var(--white);margin:12px 0"></div>
-      <h3 style="font-size:22px">Creativo B — <em>45%</em></h3>
-      <p style="color:var(--ink-soft)">Probabilidad de éxito</p>
-      <div style="height:2px;background:var(--white);margin:12px 0"></div>
-      <h3 style="font-size:22px">Creativo C — <em>52%</em></h3>
-      <p style="color:var(--ink-soft)">Probabilidad de éxito</p>
-      <p style="margin-top:24px;font-size:13px;color:var(--ink-soft)">Lanzas solo A. Todo tu presupuesto va a un anuncio validado.</p>
+    <div class="mirofish-card">
+      <div class="label">Salida de MiroFish</div>
+      <div class="score"><div class="bar"><span>Creativo A</span><span class="pct">78%</span></div><div class="track"><div class="fill" style="width:78%"></div></div></div>
+      <div class="score"><div class="bar"><span>Creativo B</span><span class="pct">45%</span></div><div class="track"><div class="fill" style="width:45%"></div></div></div>
+      <div class="score"><div class="bar"><span>Creativo C</span><span class="pct">52%</span></div><div class="track"><div class="fill" style="width:52%"></div></div></div>
+      <div class="winner">Lanzas solo A. Todo tu presupuesto va a un anuncio validado.</div>
     </div>
   </div>
 </section>
@@ -263,8 +256,8 @@ footer p{font-size:12px;color:var(--grey);font-weight:300}
         <a href="https://wa.me/573102964984" class="btn">Empezar</a>
       </div>
       <div class="plan">
-        <div class="plan-name">Agency</div>
-        <div class="price">$349<small>/mes</small></div>
+        <div class="plan-name">Agency Growth</div>
+        <div class="price">$799<small>/mes</small></div>
         <div class="per">Para agencias y freelancers</div>
         <ul>
           <li>5 clientes gestionados</li>
@@ -291,12 +284,12 @@ footer p{font-size:12px;color:var(--grey);font-weight:300}
       <div class="persona">
         <div class="tag">El freelancer</div>
         <h3>Carlos</h3>
-        <p>Gestiona 10 clientes solo. Hoy dedica 60h al mes a diseñar. Con Sinkroo atiende 23 clientes sin contratar a nadie.</p>
+        <p>Maneja marketing para 3–10 clientes. Pierde horas creando creativos y no puede escalar. Quiere automatizar lo repetitivo.</p>
       </div>
       <div class="persona">
         <div class="tag">La distribuidora MLM</div>
         <h3>Sofía</h3>
-        <p>Herbalife, Omnilife o similares. Sus anuncios los rechaza Meta por claims no permitidos. Sinkroo valida compliance antes de lanzar.</p>
+        <p>Construye su red por WhatsApp pero pierde leads fuera de horario. Necesita un vendedor 24/7 sin contratar personal.</p>
       </div>
     </div>
   </div>
@@ -304,20 +297,19 @@ footer p{font-size:12px;color:var(--grey);font-weight:300}
 
 <section class="section final">
   <div class="container">
-    <h2>Deja de quemar tu presupuesto.<br>Empieza a vender de verdad.</h2>
-    <p>Escríbenos por WhatsApp y en minutos tienes tu primera campaña lista para ser validada.</p>
-    <a href="https://wa.me/573102964984" class="btn">Hablar con Sinkroo</a>
+    <h2>Deja que Sinkroo venda por ti.</h2>
+    <p>Sube tu producto, deja que la IA valide y cierre. Tú te quedas con las ventas y con tu tiempo.</p>
+    <a href="https://wa.me/573102964984" class="btn">Empezar ahora</a>
   </div>
 </section>
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo">Sinkroo</div>
-    <p>© 2026 Sinkroo Technologies FZ-LLC · Sharjah, UAE</p>
-    <p style="display:flex;gap:18px">
-      <a href="https://wa.me/573102964984" style="color:var(--grey);text-decoration:none">WhatsApp</a>
-      <a href="mailto:paula@sinkroo.com" style="color:var(--grey);text-decoration:none">Contacto</a>
-    </p>
+    <div class="footer-logo">
+      <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g fill="#8B5CF6"><path d="M16 2 L24 7 V17 C24 23 20 27 16 29 C12 27 8 23 8 17 V7 Z"/></g><g fill="#a78bfa"><circle cx="12" cy="11" r="2.6"/><circle cx="20" cy="11" r="2.6"/></g><g fill="#c9c9d4"><path d="M14 15 L18 15 L16 19 Z"/></g></svg>
+      Sinkroo
+    </div>
+    <p>© 2026 Sinkroo Technologies FZ-LLC · www.sinkroo.com</p>
   </div>
 </footer>
 
