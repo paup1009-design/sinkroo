@@ -28,10 +28,9 @@ jobs:
                   req = urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0"})
                   data = urllib.request.urlopen(req, timeout=120).read()
                   sha = hashlib.sha256(data).hexdigest()
-                  print(u, len(data), "bytes, sha", sha)
+                  print(u, len(data), "sha", sha)
                   if sha == EXPECT:
                       open("logo.png", "wb").write(data)
-                      print("WROTE logo.png")
                       ok = True
                       break
               except Exception as e:
@@ -44,10 +43,9 @@ jobs:
           python3 - <<'EOF'
           p = "index.html"
           t = open(p, encoding="utf-8").read()
-          n_before = t.count("https://n.uguu.se/hLkDkXWC.jpg")
           t = t.replace("https://n.uguu.se/hLkDkXWC.jpg", "logo.png")
           open(p, "w", encoding="utf-8").write(t)
-          print("replaced", n_before, "external refs; internal refs now:", t.count("logo.png"))
+          print("internal logo refs:", t.count("logo.png"))
           EOF
 
       - name: Commit if changed
@@ -55,7 +53,7 @@ jobs:
           git config user.name "sinkroo-bot"
           git config user.email "action@github.com"
           git add logo.png index.html
-n          if git diff --cached --quiet; then
+          if git diff --cached --quiet; then
             echo "No changes to commit"
           else
             git commit -m "fix: logo real byte-exacto y refs internas"
